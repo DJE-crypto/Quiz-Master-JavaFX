@@ -16,10 +16,10 @@ This project demonstrates advanced skills in **Object-Oriented Programming (OOP)
 
 ### Main Dashboard & Themes
 *Experience a clean and colorful interface for selecting quiz categories.*
-<img width="1920" height="1023" alt="Capture d’écran (296)" src="https://github.com/user-attachments/assets/70158a3d-5f77-4357-a57c-e90aa2744be4" />
-<img width="1920" height="1018" alt="Capture d’écran (295)" src="https://github.com/user-attachments/assets/855538db-59e0-47d1-b6e2-93540604f677" />
-<img width="1920" height="1027" alt="Capture d’écran (294)" src="https://github.com/user-attachments/assets/89a41994-d71b-4e06-9107-c1883ca17d26" />
 <img width="1920" height="1030" alt="Capture d’écran (292)" src="https://github.com/user-attachments/assets/65753711-03ca-4e2f-83da-efb56a21b22f" />
+<img width="1920" height="1027" alt="Capture d’écran (294)" src="https://github.com/user-attachments/assets/89a41994-d71b-4e06-9107-c1883ca17d26" />
+<img width="1920" height="1018" alt="Capture d’écran (295)" src="https://github.com/user-attachments/assets/855538db-59e0-47d1-b6e2-93540604f677" />
+<img width="1920" height="1023" alt="Capture d’écran (296)" src="https://github.com/user-attachments/assets/70158a3d-5f77-4357-a57c-e90aa2744be4" />
 
 ### Real-time Statistics
 *Visual tracking of user scores and progress.*
