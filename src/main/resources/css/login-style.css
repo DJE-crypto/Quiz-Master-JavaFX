@@ -1,0 +1,113 @@
+/* login-style.css */
+
+/* ============================= */
+/* BACKGROUND            */
+/* ============================= */
+.anchor-pane, .root {
+    -fx-background-color: linear-gradient(
+            to bottom,
+            #0a1026 0%,
+            #0f183a 40%,
+            #1a2a55 70%,
+            #0a1026 100%
+    );
+}
+
+/* ============================= */
+/* MAIN TITLE            */
+/* ============================= */
+.main-title {
+    -fx-font-size: 80px;
+    -fx-font-weight: bold;
+    -fx-text-fill: linear-gradient(#ffd485, #ce9e28);
+    -fx-effect: dropshadow(gaussian, black, 20, 0.6, 0, 0);
+}
+
+/* ============================= */
+/* SUBTITLE              */
+/* ============================= */
+.subtitle {
+    -fx-font-size: 28px;
+    -fx-text-fill: #fff;
+    -fx-opacity: 0.9;
+}
+
+/* ============================= */
+/* CADRE (LOGIN/SIGNUP)*/
+/* ============================= */
+.auth-box {
+    -fx-background-color: rgba(255,255,255,0.05);
+    -fx-background-radius: 20;
+    -fx-border-color: rgba(255,255,255,0.18);
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-padding: 40 50;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 30, 0.25, 0, 0);
+}
+
+/* ============================= */
+/* INPUTS (TEXTE BLANC)*/
+/* ============================= */
+.text-field, .password-field {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-text-fill: #ffffff; /* C'est le style qui causait problème ailleurs ! Il est maintenant isolé ici. */
+    -fx-background-radius: 8;
+    -fx-border-color: rgba(255,255,255,0.20);
+    -fx-border-radius: 8;
+    -fx-padding: 8 10;
+    -fx-prompt-text-fill: #9aa0b8;
+    -fx-font-size: 14px;
+}
+
+.input-label {
+    -fx-text-fill: #e8ecff;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* ============================= */
+/* BUTTONS             */
+/* ============================= */
+
+/* BOUTON PRINCIPAL 1 : Login (Jaune) */
+#loginButton, .register-button {
+    -fx-background-color: linear-gradient(#e8c45e, #c89b1f);
+    -fx-text-fill: #000;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 8 25;
+}
+
+#loginButton:hover, .register-button:hover {
+    -fx-background-color: linear-gradient(#f4d36f, #d2a832);
+    -fx-cursor: hand;
+}
+
+/* NOUVEAU STYLE (BLEU) pour le bouton SIGN UP */
+.signup-button {
+    -fx-background-color: linear-gradient(#72b0f4, #3c78c8);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 8 25;
+}
+
+.signup-button:hover {
+    -fx-background-color: linear-gradient(#8bc0ff, #4b88e0);
+    -fx-cursor: hand;
+}
+
+/* BOUTON SECONDAIRE : Back to Login (Rouge) */
+.back-button {
+    -fx-background-color: linear-gradient(#f47272, #c83c3c);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 8 25;
+    -fx-border-width: 0;
+}
+
+.back-button:hover {
+    -fx-background-color: linear-gradient(#ff8c8c, #d24b4b);
+    -fx-cursor: hand;
+}

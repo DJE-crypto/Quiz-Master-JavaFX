@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane stylesheets="@/css/admin-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.s4m.poo.controller.AdminController">
+
+    <top>
+        <VBox>
+            <HBox styleClass="admin-header">
+                <HBox alignment="CENTER_LEFT" spacing="15" HBox.hgrow="ALWAYS">
+                    <ImageView fitHeight="40" fitWidth="40" preserveRatio="true">
+                        <Image url="@/images/logo.png" />
+                    </ImageView>
+                    <VBox alignment="CENTER_LEFT" spacing="2">
+                        <Label styleClass="admin-app-title" text="QUIZ MASTER" />
+                        <Label styleClass="admin-subtitle" text="Panneau d'Administration" />
+                    </VBox>
+                </HBox>
+
+                <HBox alignment="CENTER" spacing="20">
+                    <VBox alignment="CENTER_RIGHT" spacing="2">
+                        <Label fx:id="adminNameLabel" styleClass="admin-name" text="Admin" />
+                        <Label styleClass="admin-role" text="Rôle: Administrateur" />
+                    </VBox>
+                    <Button onAction="#logout" styleClass="logout-btn" text="Déconnexion" />
+                </HBox>
+            </HBox>
+
+            <HBox spacing="0" styleClass="admin-nav">
+                <Button onAction="#showQuestionsManagement" styleClass="nav-button" text="Questions" />
+                <Button onAction="#showQuizzesManagement" styleClass="nav-button" text="Quiz" />
+                <Button onAction="#showThemesManagement" styleClass="nav-button" text="Thèmes" />
+                <Button onAction="#showUsersManagement" styleClass="nav-button" text="Utilisateurs" />
+                <Button onAction="#showStats" styleClass="nav-button" text="Statistiques" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <bottom>
+        <HBox styleClass="admin-footer">
+            <Label styleClass="footer-text" text="© 2024 Quiz Master - Panneau d'Administration v1.0" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="statusLabel" styleClass="status-label" text="Prêt" />
+        </HBox>
+    </bottom>
+
+    <center>
+        <VBox styleClass="admin-main-content" alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+            </padding>
+
+            <HBox spacing="15" styleClass="actions-bar" alignment="CENTER">
+                <Button onAction="#addNewQuestion" styleClass="add-btn" text="+ Nouvelle Question">
+                    <graphic>
+                        <ImageView fitHeight="20" fitWidth="20">
+                            <Image url="@/images/logo.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <HBox spacing="10" styleClass="search-box">
+                    <TextField fx:id="searchField" onAction="#searchQuestions" promptText="Rechercher une question..." styleClass="search-field" />
+                    <Button onAction="#searchQuestions" styleClass="search-btn" text="Rechercher" />
+                </HBox>
+
+                <ComboBox fx:id="filterCombo" promptText="Filtrer par quiz..." styleClass="filter-combo" />
+                <Button onAction="#exportToCSV" styleClass="export-btn" text="Exporter CSV" />
+                <Button fx:id="refreshBtn" onAction="#refreshQuestions" styleClass="refresh-icon-btn" text="↻" />
+            </HBox>
+
+            <VBox styleClass="table-section" VBox.vgrow="ALWAYS">
+                <Label styleClass="section-title" text="LISTE DES QUESTIONS" />
+
+                <TableView fx:id="questionsTable" styleClass="admin-table" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="idColumn" styleClass="table-column" text="ID" />
+                        <TableColumn fx:id="questionColumn" styleClass="table-column" text="Question" />
+                        <TableColumn fx:id="themeColumn" styleClass="table-column" text="Thème" />
+                        <TableColumn fx:id="difficultyColumn" styleClass="table-column" text="Difficulté" />
+                        <TableColumn fx:id="quizColumn" styleClass="table-column" text="Quiz" />
+                        <TableColumn fx:id="actionsColumn" styleClass="table-column" text="Actions" />
+                    </columns>
+                </TableView>
+
+                <HBox styleClass="pagination-bar">
+                    <Label styleClass="results-label" text="Résultats: " />
+                    <Label fx:id="resultsCountLabel" styleClass="results-count" text="0" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button onAction="#previousPage" styleClass="pagination-btn" text="Précédent" />
+                    <Label fx:id="pageLabel" styleClass="page-label" text="Page 1/1" />
+                    <Button onAction="#nextPage" styleClass="pagination-btn" text="Suivant" />
+                </HBox>
+            </VBox>
+
+            <HBox spacing="20" styleClass="quick-stats" alignment="CENTER">
+                <VBox styleClass="stat-item">
+                    <Label fx:id="totalQuestionsLabel" styleClass="stat-number" text="0" />
+                    <Label styleClass="stat-label" text="Questions totales" />
+                </VBox>
+                <VBox styleClass="stat-item">
+                    <Label fx:id="easyQuestionsLabel" styleClass="stat-number" text="0" />
+                    <Label styleClass="stat-label" text="Facile" />
+                </VBox>
+                <VBox styleClass="stat-item">
+                    <Label fx:id="mediumQuestionsLabel" styleClass="stat-number" text="0" />
+                    <Label styleClass="stat-label" text="Moyen" />
+                </VBox>
+                <VBox styleClass="stat-item">
+                    <Label fx:id="hardQuestionsLabel" styleClass="stat-number" text="0" />
+                    <Label styleClass="stat-label" text="Difficile" />
+                </VBox>
+                <VBox styleClass="stat-item">
+                    <Label fx:id="lastUpdateLabel" styleClass="stat-number" text="--" />
+                    <Label styleClass="stat-label" text="Dernière mise à jour" />
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox fx:id="formContainer" styleClass="form-container" visible="false" alignment="TOP_CENTER">
+            <Label fx:id="formTitle" styleClass="form-title" text="NOUVELLE QUESTION" />
+
+            <ScrollPane fitToWidth="true" styleClass="form-scroll" VBox.vgrow="ALWAYS">
+                <VBox spacing="15" styleClass="form-content">
+                    <VBox spacing="5">
+                        <Label styleClass="form-label" text="Question *" />
+                        <TextArea fx:id="questionTextArea" promptText="Entrez la question..." styleClass="question-textarea" wrapText="true" />
+                    </VBox>
+
+                    <VBox spacing="15">
+                        <Label styleClass="form-label" text="Choix de réponse *" />
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <RadioButton fx:id="choice1Radio">
+                                <toggleGroup>
+                                    <ToggleGroup fx:id="choiceGroup" />
+                                </toggleGroup>
+                            </RadioButton>
+                            <TextField fx:id="choice1Field" promptText="Choix 1" styleClass="choice-field" HBox.hgrow="ALWAYS" />
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <RadioButton fx:id="choice2Radio" toggleGroup="$choiceGroup" />
+                            <TextField fx:id="choice2Field" promptText="Choix 2" styleClass="choice-field" HBox.hgrow="ALWAYS" />
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <RadioButton fx:id="choice3Radio" toggleGroup="$choiceGroup" />
+                            <TextField fx:id="choice3Field" promptText="Choix 3" styleClass="choice-field" HBox.hgrow="ALWAYS" />
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <RadioButton fx:id="choice4Radio" toggleGroup="$choiceGroup" />
+                            <TextField fx:id="choice4Field" promptText="Choix 4" styleClass="choice-field" HBox.hgrow="ALWAYS" />
+                        </HBox>
+
+                        <Label styleClass="hint-label" text="* Sélectionnez la réponse correcte" />
+                    </VBox>
+
+                    <GridPane hgap="15" styleClass="metadata-grid" vgap="10">
+                        <Label styleClass="form-label" text="Thème *" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <ComboBox fx:id="themeCombo" styleClass="form-combo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label styleClass="form-label" text="Difficulté *" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                        <ComboBox fx:id="difficultyCombo" styleClass="form-combo" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                        <Label styleClass="form-label" text="Quiz *" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="quizCombo" styleClass="form-combo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label styleClass="form-label" text="Points" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField fx:id="pointsField" styleClass="points-field" text="1" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                    </GridPane>
+
+                    <VBox spacing="5">
+                        <Label styleClass="form-label" text="Explication (optionnel)" />
+                        <TextArea fx:id="explanationTextArea" promptText="Explication de la réponse..." styleClass="explanation-textarea" wrapText="true" />
+                    </VBox>
+
+                    <HBox spacing="15" styleClass="form-buttons">
+                        <Button onAction="#cancelForm" styleClass="cancel-btn" text="Annuler" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button onAction="#saveQuestion" styleClass="save-btn" text="Sauvegarder" />
+                        <Button onAction="#saveAndNew" styleClass="save-new-btn" text="Sauvegarder et Nouveau" />
+                    </HBox>
+                </VBox>
+            </ScrollPane>
+        </VBox>
+    </right>
+
+</BorderPane>

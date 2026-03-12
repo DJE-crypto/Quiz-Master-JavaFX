@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="905.0" styleClass="background-pane" stylesheets="@/css/game-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.s4m.poo.controller.GameController">
+    <children>
+
+        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="905.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets left="20.0" right="20.0" />
+            </padding>
+            <children>
+
+                <Label fx:id="exitLabel" onMouseClicked="#handleExitToDashboard" styleClass="joker-icon" text="⬅️" textFill="GOLD">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <Label fx:id="jokerLabel" onMouseClicked="#useJoker" styleClass="joker-icon" text="💡" textFill="GOLD" userData="joker">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+
+        <VBox alignment="CENTER" layoutX="51.0" layoutY="200.0" prefHeight="642.0" prefWidth="803.0" AnchorPane.bottomAnchor="-115.20000000000005" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.40000000000009" AnchorPane.topAnchor="200.0">
+            <children>
+
+                <Label fx:id="questionLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="0.0" prefWidth="803.0" styleClass="question-text" text="La question du quiz apparaît ici." textFill="GOLD">
+                    <font>
+                        <Font name="Arial Bold Italic" size="18.0" />
+                    </font>
+                </Label>
+
+                <GridPane alignment="CENTER" prefHeight="306.0" prefWidth="804.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="404.4000244140625" minWidth="10.0" percentWidth="50.0" prefWidth="50.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="406.79998779296875" minWidth="10.0" percentWidth="50.0" prefWidth="50.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <StackPane fx:id="stackPaneA" onMouseClicked="#handleRectangleClick" prefHeight="150.0" prefWidth="200.0" styleClass="answer-pane">
+                            <children>
+                                <Rectangle fx:id="rectA" arcHeight="20.0" arcWidth="20.0" fill="#ff73e8" height="134.0" stroke="BLACK" strokeType="INSIDE" styleClass="answer-rect" width="357.0" />
+                                <HBox alignment="CENTER" prefHeight="169.0" prefWidth="256.0" styleClass="answer-content">
+                                    <children>
+                                        <Label prefHeight="30.0" prefWidth="46.0" styleClass="option-letter" text="A-)" textFill="GOLD" />
+                                        <Label fx:id="labelA" prefHeight="48.0" prefWidth="278.0" styleClass="answer-text" text="Label A" textFill="#fff6f6" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </StackPane>
+
+                        <StackPane fx:id="stackPaneB" onMouseClicked="#handleRectangleClick" prefHeight="150.0" prefWidth="200.0" styleClass="answer-pane" GridPane.rowIndex="1">
+                            <children>
+                                <Rectangle fx:id="rectB" arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="134.0" stroke="BLACK" strokeType="INSIDE" styleClass="answer-rect" width="357.0" />
+                                <HBox alignment="CENTER" prefHeight="94.0" prefWidth="275.0" styleClass="answer-content">
+                                    <children>
+                                        <Label alignment="CENTER" prefHeight="50.0" prefWidth="50.0" styleClass="option-letter" text="B-)" textFill="GOLD" />
+                                        <Label fx:id="labelB" contentDisplay="CENTER" prefHeight="45.0" prefWidth="278.0" styleClass="answer-text" text="Label B" textFill="WHITE" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </StackPane>
+
+                        <StackPane fx:id="stackPaneC" onMouseClicked="#handleRectangleClick" prefHeight="150.0" prefWidth="200.0" styleClass="answer-pane" GridPane.columnIndex="1">
+                            <children>
+                                <Rectangle fx:id="rectC" arcHeight="20.0" arcWidth="20.0" fill="#ffa769" height="134.0" stroke="BLACK" strokeType="INSIDE" styleClass="answer-rect" width="357.0" />
+                                <HBox alignment="CENTER" prefHeight="169.0" prefWidth="256.0" styleClass="answer-content">
+                                    <children>
+                                        <Label prefHeight="30.0" prefWidth="46.0" styleClass="option-letter" text="C-)" textFill="GOLD" />
+                                        <Label fx:id="labelC" prefHeight="48.0" prefWidth="278.0" styleClass="answer-text" text="Label C" textFill="#fff6f6" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </StackPane>
+
+                        <StackPane fx:id="stackPaneD" onMouseClicked="#handleRectangleClick" prefHeight="150.0" prefWidth="200.0" styleClass="answer-pane" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <children>
+                                <Rectangle fx:id="rectD" arcHeight="20.0" arcWidth="20.0" fill="#b700ff" height="134.0" stroke="BLACK" strokeType="INSIDE" styleClass="answer-rect" width="357.0" />
+                                <HBox alignment="CENTER" prefHeight="169.0" prefWidth="256.0" styleClass="answer-content">
+                                    <children>
+                                        <Label prefHeight="30.0" prefWidth="46.0" styleClass="option-letter" text="D-)" textFill="GOLD" />
+                                        <Label fx:id="labelD" prefHeight="48.0" prefWidth="278.0" styleClass="answer-text" text="Label D" textFill="#fff6f6" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </StackPane>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </GridPane>
+
+                <HBox alignment="CENTER" prefHeight="22.0" prefWidth="666.0" spacing="10">
+                    <VBox.margin>
+                        <Insets bottom="15.0" left="50.0" right="50.0" top="15.0" />
+                    </VBox.margin>
+
+                    <StackPane prefHeight="20.0" HBox.hgrow="ALWAYS">
+
+                        <Rectangle arcHeight="10.0" arcWidth="10.0" height="10.0" styleClass="progress-bar-background" width="700.0" />
+
+                        <Rectangle fx:id="progressBarRectangle" arcHeight="10.0" arcWidth="10.0" height="10.0" styleClass="progress-bar-fill" width="700.0" />
+                    </StackPane>
+
+                    <Label fx:id="timerLabel" text="30s" textFill="GOLD">
+                        <font>
+                            <Font name="Arial Bold" size="18.0" />
+                        </font>
+                        <padding>
+                            <Insets right="5.0" />
+                        </padding>
+                    </Label>
+                </HBox>
+            </children>
+        </VBox>
+
+        <StackPane fx:id="jokerMessagePane" layoutX="352.0" layoutY="125.0" prefHeight="150.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="300.0">
+            <children>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" styleClass="joker-popup-container">
+                    <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                    </padding>
+                    <children>
+                        <Label text="LA BONNE RÉPONSE EST :" textFill="WHITE">
+                            <VBox.margin>
+                                <Insets bottom="10.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="correctAnswerLabel" styleClass="joker-popup-text" text="[Réponse]" textFill="GOLD" />
+                        <Label onMouseClicked="#closeJokerMessage" text="[ C L I Q U E R P O U R F E R M E R ]" textFill="GOLD" />
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

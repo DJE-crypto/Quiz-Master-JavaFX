@@ -1,0 +1,109 @@
+/* game-style.css */
+
+/* Styles pour le fond de l'application et les éléments généraux */
+.root {
+    /* Fond de l'application */
+    -fx-background-color: #1a1a1a;
+}
+
+.background-pane {
+    /* Style du panneau principal */
+    -fx-background-color: #1a1a1a;
+    -fx-background-image: url("../images/background3.png");
+    -fx-background-size: 100% 100%;
+    -fx-background-repeat: no-repeat;
+}
+
+/* --- QUESTION ET PROGRESSION --- */
+.question-text {
+    /* Style du label de la question */
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-fill: gold;
+}
+
+.progress-bar-background {
+    /* Fond gris de la barre de progression */
+    -fx-fill: #292929;
+    -fx-stroke: white;
+    -fx-stroke-width: 1.0;
+}
+
+.progress-bar-fill {
+    /* Couleur par défaut (avant que Java ne la change en Rouge/Vert) */
+    -fx-fill: #2d9c49;
+}
+
+/* --- STYLES DES RÉPONSES --- */
+.answer-rect {
+    /* Style par défaut des rectangles de réponse */
+    -fx-stroke: black;
+    -fx-stroke-width: 1.0;
+    -fx-arc-height: 20.0;
+    -fx-arc-width: 20.0;
+    -fx-cursor: hand;
+}
+
+.option-letter {
+    /* Style des lettres (A-), (B-), etc. */
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.answer-text {
+    /* Style du texte de l'option de réponse */
+    -fx-font-size: 16px;
+    -fx-font-style: italic;
+}
+
+/* --- STYLES DES JOKERS ET ICÔNE DE SORTIE --- */
+.joker-icon {
+    /* Style général des icônes interactives en haut (Sortie et Joker) */
+    -fx-background-color: #292929;
+    -fx-border-color: GOLD;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px 10px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);
+}
+
+.joker-icon:hover {
+    /* Effet au survol */
+    -fx-background-color: #3b3b3b;
+}
+
+.joker-icon:disabled {
+    /* Style pour le joker après utilisation */
+    -fx-opacity: 0.4;
+    -fx-cursor: default;
+    -fx-border-color: gray;
+}
+
+/* --- STYLES DU POP-UP DE LA BOÎTE DE DIALOGUE --- */
+.joker-popup-container {
+    /* Conteneur principal du message (VBox) */
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: GOLD;
+    -fx-border-width: 5px;
+    -fx-border-radius: 10px;
+    -fx-padding: 30px;
+    -fx-spacing: 15px;
+    /* Effet de glow doré */
+    -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 0.8), 50, 0.7, 0, 0);
+}
+
+.joker-popup-text {
+    /* Style de la réponse réelle dans le pop-up */
+    -fx-text-fill: GOLD;
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+}
+
+.joker-popup-close-button {
+    /* Bouton pour fermer */
+    -fx-text-fill: #ccc;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+    -fx-padding: 5px 0 0 0;
+}
